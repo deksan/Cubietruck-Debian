@@ -21,11 +21,12 @@ mkdir -p $DEST/output
 cp output/uEnv.txt $DEST/output
 
 git clone https://github.com/cubieboard/u-boot-sunxi $DEST/u-boot-sunxi # Boot loader
-git clone https://github.com/linux-sunxi/sunxi-tools.git $DEST # Allwinner tools
-git clone https://github.com/cubieboard/cubie_configs $DEST # Hardware configurations
-git clone https://github.com/cubieboard/linux-sunxi/ $DEST # Kernel 3.4.61+
+git clone https://github.com/linux-sunxi/sunxi-tools.git $DEST/sunxi-tools # Allwinner tools
+git clone https://github.com/cubieboard/cubie_configs $DEST/cubie_configs # Hardware configurations
+git clone https://github.com/cubieboard/linux-sunxi/ $DEST/linux-sunxi # Kernel 3.4.61+
 
-# Applying Patch for 2g
+# Applying Patch for 2gb memory
+patch -f $DEST/u-boot-sunxi/include/configs/sunxi-common.h < patch/memory.patch
 
 #Change Video output ( TODO add a param so the user can choose that ?)
 sed -e 's/output_type = 3/output_type = 4/g' $DEST/cubie_configs/sysconfig/linux/cubietruck.fex > $DEST/cubie_configs/sysconfig/linux/cubietruck-vga.fex
