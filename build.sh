@@ -7,7 +7,7 @@ DEST=$DEST
 # Downloading necessary files
 #--------------------------------------------------------------------------------
 
-sudo apt-get install binfmt-support bison build-essential ccache debootstrap flex gawk gcc-arm-linux-gnueabi gcc-arm-linux-gnueabihf gettext git linux-headers-generic-lts-raring linux-image-generic-lts-raring lvm2 qemu-user-static texinfo texlive u-boot-tools uuid-dev zlib1g-dev unzip libncurses5-dev
+sudo apt-get -q -y install binfmt-support bison build-essential ccache debootstrap flex gawk gcc-arm-linux-gnueabi gcc-arm-linux-gnueabihf gettext git linux-headers-generic linux-image-generic lvm2 qemu-user-static texinfo texlive u-boot-tools uuid-dev zlib1g-dev unzip libncurses5-dev
 
 #--------------------------------------------------------------------------------
 # Preparing output / destination files
