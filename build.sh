@@ -2,6 +2,10 @@
 
 DEST=/tmp/Cubie
 
+
+echo "Building Cubietruck-Debian in $DEST"
+sleep 3
+
 #Requires root ..
 #--------------------------------------------------------------------------------
 # Downloading necessary files
@@ -16,7 +20,7 @@ sudo apt-get -q -y install binfmt-support bison build-essential ccache debootstr
 mkdir -p $DEST/output
 cp output/uEnv.txt $DEST/output
 
-git clone https://github.com/cubieboard/u-boot-sunxi $DEST # Boot loader
+git clone https://github.com/cubieboard/u-boot-sunxi $DEST/u-boot-sunxi # Boot loader
 git clone https://github.com/linux-sunxi/sunxi-tools.git $DEST # Allwinner tools
 git clone https://github.com/cubieboard/cubie_configs $DEST # Hardware configurations
 git clone https://github.com/cubieboard/linux-sunxi/ $DEST # Kernel 3.4.61+
