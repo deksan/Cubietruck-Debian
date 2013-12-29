@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DEST=$DEST
+DEST=/tmp/Cubie
 
 #Requires root ..
 #--------------------------------------------------------------------------------
@@ -16,10 +16,10 @@ sudo apt-get -q -y install binfmt-support bison build-essential ccache debootstr
 mkdir -p $DEST/output
 cp output/uEnv.txt $DEST/output
 
-git --work-tree=$DEST clone https://github.com/cubieboard/u-boot-sunxi # Boot loader
-git --work-tree=$DEST clone https://github.com/linux-sunxi/sunxi-tools.git # Allwinner tools
-git --work-tree=$DEST clone https://github.com/cubieboard/cubie_configs # Hardware configurations
-git --work-tree=$DEST clone https://github.com/cubieboard/linux-sunxi/ # Kernel 3.4.61+
+git clone https://github.com/cubieboard/u-boot-sunxi $DEST # Boot loader
+git clone https://github.com/linux-sunxi/sunxi-tools.git $DEST # Allwinner tools
+git clone https://github.com/cubieboard/cubie_configs $DEST # Hardware configurations
+git clone https://github.com/cubieboard/linux-sunxi/ $DEST # Kernel 3.4.61+
 
 # Applying Patch for 2g
 
